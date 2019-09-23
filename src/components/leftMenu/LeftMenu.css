@@ -2,10 +2,10 @@
 .bm-burger-button {
     position: absolute;
     margin-top:-20px;
-    width: 28px;
-    height: 25px;
+    width: 25px;
+    height: 20px;
     left: 20px;
-    top: 34px;
+    top: 38px;
   }
   
   /* Color/shape of burger icon bars */
@@ -40,7 +40,7 @@
   /* General sidebar styles */
   .bm-menu {
     background: #3a3d49;
-    padding: 2em 1em 0;
+    padding: 4em 0em 0;
     opacity:0.9;
   }
   
@@ -52,7 +52,6 @@
   /* Wrapper for item list */
   .bm-item-list {
     color: #b8b7ad;
-    padding: 0.8em;
   }
   
   /* Individual item */
@@ -66,10 +65,17 @@
   }
 
   .menu-item{
-    font-size: 20px;
+    font-size: 24px;
     color: rgb(255, 255, 255);
-    padding-left:15px; 
+    text-align: center;
+    padding: 10px;
     text-decoration: none !important;
+    outline: none;
+  }
+
+  .menu-item:hover{
+    background-color: #fcfcfc;  
+    color: #5c7080;
   }
 
   .menu-block{

@@ -12,6 +12,7 @@ function Header() {
             <input class="bp3-input" placeholder="Search files..." type="text" />
             <button class="bp3-button bp3-minimal bp3-icon-home">Home</button>
             <button class="bp3-button bp3-minimal bp3-icon-shopping-cart">Cart</button>
+            <button class="bp3-button bp3-minimal bp3-icon-heart">Like</button>
             <span class="bp3-navbar-divider"></span>
             <button class="bp3-button bp3-minimal bp3-icon-user"></button>
             <button class="bp3-button bp3-minimal bp3-icon-notifications"></button>
