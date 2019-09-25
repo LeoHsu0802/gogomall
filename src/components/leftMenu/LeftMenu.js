@@ -1,13 +1,20 @@
 import React from 'react'
 import './LeftMenu.css'
 import { slide as Menu } from 'react-burger-menu'
+import { NavLink } from 'react-router-dom'
 
 function LeftMenu() {
     return (
         <Menu>
-            <a id="home" className="menu-item" href="/">3C</a>
-            <a id="about" className="menu-item" href="/about">Fashion</a>
-            <a id="contact" className="menu-item" href="/contact">Home & Kitchen</a>
+            <NavLink to='./3c' style={{ textDecoration: 'none', outline: 'none'}}>
+                <p id="home" className="menu-item" href="/">3C</p>
+            </NavLink>
+            <NavLink to='./fashion' style={{ textDecoration: 'none', outline: 'none'}}>
+                <p id="about" className="menu-item" href="/about">Fashion</p>
+            </NavLink>
+            <NavLink to='./home-kitchen' style={{ textDecoration: 'none', outline: 'none'}}>
+                <p id="contact" className="menu-item" href="/contact">Home & Kitchen</p>
+            </NavLink>
         </Menu>
     )
 }
