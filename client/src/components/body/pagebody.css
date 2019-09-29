@@ -1,3 +1,11 @@
+@import "~normalize.css";
+@import "~@blueprintjs/core/lib/css/blueprint.css";
+@import "~@blueprintjs/icons/lib/css/blueprint-icons.css";
+
+.additem-box{
+    margin: 3em 20em;
+}
+
 .container{
     background-color: gray;
 }

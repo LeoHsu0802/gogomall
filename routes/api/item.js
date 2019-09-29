@@ -14,7 +14,10 @@ router.get('/', (req, res) =>{
 //Post api/items
 router.post('/', (req, res) => {
     const newItem = new Item({
-        name: req.body.name
+        name: req.body.name,
+        price: req.body.price,
+        img: req.body.img,
+        department: req.body.department
     });
     newItem.save().then(item => res.json(item));
 })
