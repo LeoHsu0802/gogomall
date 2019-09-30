@@ -1,9 +1,9 @@
-import React,{ useState } from 'react'
-import './PageBody.css'
+import React,{ useState } from 'react';
+import './PageBody.css';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { addItem } from '../../actions/index'
+import { addItem } from '../../actions/index';
 
 function AddNewItem() {
     const dispatch = useDispatch();
@@ -21,8 +21,9 @@ function AddNewItem() {
                 price: itemPrice,
                 img: itemImg,
                 department: itemDepartment
-            })
+                })
             );
+            alert("Submit successfully")
         }else
             console.log("請勿空白")
     }
@@ -41,6 +42,7 @@ function AddNewItem() {
                 <Label>Item Price</Label>
                 <Input 
                     name="itemPrice"  
+                    type="number"
                     placeholder="Enter item price..." 
                     onChange={(e) => setItemPrice(e.target.value)}
                 />

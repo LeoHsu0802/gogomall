@@ -10,7 +10,7 @@
 //     }
 // }
 import axios from 'axios';
-
+//POST Item
 export const addItem = (item) => dispatch => {
     axios
         .post('/api/item', item)
@@ -25,4 +25,17 @@ export const addItem = (item) => dispatch => {
                     }
                 })
         )
-}
+        .catch(err => console.log(err))
+};
+//GET Item
+export const getItem = () => dispatch => {
+    axios
+        .get('/api/item')
+        .then(res =>
+            dispatch({
+                type : "GET_ITEM",
+                payload : res.data
+                })
+            )
+        .catch(err => console.log(err))
+};
