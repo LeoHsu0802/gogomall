@@ -1,14 +1,16 @@
 import React, {useState, useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getItem } from '../../actions/index';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './PageBody.css';
 import {
         Card, CardImg, CardText, CardBody,CardTitle, 
         CardSubtitle, Button, Container, Row, Col
         } from 'reactstrap';
-
 function Ccc() {
     const dispatch = useDispatch();
     const itemDatas = useSelector(state => state.getItem);
+    const departmentDatas = itemDatas.item.filter(x => x.department === '3C')
 
     // useEffect instead of componentdidmount
     useEffect(()=>{
@@ -18,15 +20,16 @@ function Ccc() {
     return (
         <Container>
             <Row>
-            {itemDatas.item.map(
+            {departmentDatas.map(
                 item =>(
-                        <Col xl="4" sm="4" key={item._id}>
-                            <Card body outline color="info">
+                        <Col lg={3} md={2} key={item._id} className="item">
+                            <Card>
                                 <CardImg src={item.img} alt={item.name} />
                                     <CardBody>
                                         <CardTitle>{item.name}</CardTitle>
-                                        <CardSubtitle>$ {item.price}</CardSubtitle>
-                                        <Button>Button</Button>
+                                        <CardSubtitle>${item.price}</CardSubtitle>
+                                        <CardText />
+                                        <Button>Add to cart</Button>
                                     </CardBody>
                             </Card>
                         </Col> 

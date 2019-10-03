@@ -1,7 +1,3 @@
-@import "~normalize.css";
-@import "~@blueprintjs/core/lib/css/blueprint.css";
-@import "~@blueprintjs/icons/lib/css/blueprint-icons.css";
-
 
 input[type='number'] {
     -moz-appearance:textfield;
@@ -14,4 +10,9 @@ input::-webkit-inner-spin-button {
 
 .additem-box{
     margin: 3em 20em;
+}
+
+
+.item{
+    margin-top: 20px;
 }
