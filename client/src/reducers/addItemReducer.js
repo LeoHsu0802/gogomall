@@ -5,7 +5,7 @@ const initState = {
     department: ""
 }
 
-const addItem = (state = initState, action) => {
+const addItemReducer = (state = initState, action) => {
     switch(action.type){
         case 'ADD_ITEM':
             return {
@@ -15,9 +15,9 @@ const addItem = (state = initState, action) => {
                 img: action.payload.img,
                 department: action.payload.department
             }
-            default:
-                    return state;
+        default:
+                return state;
     }
 }
 
-export default addItem;
+export default addItemReducer;

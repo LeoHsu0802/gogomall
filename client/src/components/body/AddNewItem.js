@@ -2,12 +2,10 @@ import React,{ useState } from 'react';
 import './pagebody.css';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
 import { addItem } from '../../actions/index';
 
 function AddNewItem() {
     const dispatch = useDispatch();
-    const addItemSelector = useSelector(state => state.addItem);
     const [itemName, setItemName] = useState("");
     const [itemPrice, setItemPrice] = useState("");
     const [itemImg, setItemImg] = useState("");

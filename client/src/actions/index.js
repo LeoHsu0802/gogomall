@@ -49,7 +49,7 @@ export const cartSwitch = () => {
 //Add item to shopping cart
 export const addToCart = (item) => {
     return{
-        typr : "ADD_TO_CART",
+        type: "ADD_TO_CART",
         payload : item
     }
 }
