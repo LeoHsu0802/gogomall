@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getItem } from '../../actions/index';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './PageBody.css';
+import './pagebody.css';
 import {
         Card, CardImg, CardText, CardBody,CardTitle, 
         CardSubtitle, Button, Container, Row, Col

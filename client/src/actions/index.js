@@ -1,15 +1,5 @@
-// export const addItem = (item) => {
-//     return{
-//         type : "ADD_ITEM",
-//         payload :{
-//             name: item.name,
-//             price: item.price,
-//             img: item.img,
-//             department: item.department
-//         }
-//     }
-// }
 import axios from 'axios';
+
 //POST Item
 export const addItem = (item) => dispatch => {
     axios
@@ -27,6 +17,7 @@ export const addItem = (item) => dispatch => {
         )
         .catch(err => console.log(err))
 };
+
 //GET Item
 export const getItem = () => dispatch => {
     axios
@@ -39,3 +30,26 @@ export const getItem = () => dispatch => {
             )
         .catch(err => console.log(err))
 };
+
+//Search Item
+export const searchItem = (item) => {
+    return{
+        type : "SEARCH",
+        payload : item
+    }
+}
+
+//Shopping cart modal switch OPEN/CLOSE
+export const cartSwitch = () => {
+    return{
+        type : "CART_SWITCH"
+    }
+}
+
+//Add item to shopping cart
+export const addToCart = (item) => {
+    return{
+        typr : "ADD_TO_CART",
+        payload : item
+    }
+}

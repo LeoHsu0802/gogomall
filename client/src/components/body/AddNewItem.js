@@ -1,5 +1,5 @@
 import React,{ useState } from 'react';
-import './PageBody.css';
+import './pagebody.css';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';

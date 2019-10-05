@@ -6,6 +6,7 @@ import Ccc from './components/body/Ccc';
 import Fashion from './components/body/Fashion';
 import Homekitchen from './components/body/HomeKitchen';
 import AddNewItem from './components/body/AddNewItem'
+import ShoppingCart from './components/body/ShoppingCart'
 import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
@@ -15,6 +16,7 @@ function App() {
       <div className="App">
         <Header />
         <LeftMenu />
+        <ShoppingCart />
         <Switch>
             <Route exact path='/' component={Homepage} />
             <Route exact path='/3c' component={Ccc} />

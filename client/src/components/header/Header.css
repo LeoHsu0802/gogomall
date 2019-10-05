@@ -17,3 +17,15 @@
 .user{
     font-size: 50px;
 }
+
+.Icon-sub{
+    margin-top: -10px;
+    margin-left: -8px;
+    padding-top: 4.5px;
+    width:10px;height:10px;
+    border-radius:999em;
+    font-size: 8px;
+    color: aliceblue;
+    background-color: rgb(221, 110, 110);
+    text-align: center;
+}
