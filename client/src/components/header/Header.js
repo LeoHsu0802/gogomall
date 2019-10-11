@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 
 function Header() {
     const dispatch = useDispatch();
-    const addTocart = useSelector(state => state.addTocart);
+    const addToCart = useSelector(state => state.addToCart);
 
     return (
     <nav className="bp3-navbar .modifier">
@@ -34,10 +34,10 @@ function Header() {
             className="bp3-button bp3-minimal bp3-icon-shopping-cart"
             onClick = {() => dispatch(cartSwitch())}
             >
-            {/*Once add item to cart then show the quantity in red circle*/}
-                {addTocart.length != 0 && <sup className="Icon-sub">
+            {/*Once add item to cart then show the quantity in red circle else show nothing*/}
+                {addToCart.length !== 0 && <sup className="Icon-sub">
                     <span>
-                        {addTocart.length}
+                        {addToCart.length}
                     </span>
                 </sup>}
             Cart

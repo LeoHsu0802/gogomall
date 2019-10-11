@@ -10,7 +10,7 @@ const allReducers = combineReducers({
     getItem : getItemReducer,
     searchItem : searchItemReducer,
     cartSwitch : cartSwitchReducer,
-    addTocart : addTocartReducer
+    addToCart : addTocartReducer
 })
 
 export default allReducers;

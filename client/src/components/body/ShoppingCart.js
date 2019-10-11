@@ -7,6 +7,10 @@ import './pagebody.css'
 function ShoppingCart() {
     const dispatch = useDispatch();
     const cartSwitchIsOpen = useSelector(state => state.cartSwitch);
+    const addToCart = useSelector(state => state.addToCart);
+    const totalUnit = addToCart.reduce((acc, cur) => acc + cur.unit, 0);
+    const totalPrice = addToCart.reduce((acc, cur) => acc + cur.price, 0);
+    console.log(addToCart)
 
     return (
         <div>
@@ -16,20 +20,29 @@ function ShoppingCart() {
                     <Table>
                         <thead>
                             <tr>
-                                <th>Item</th>
                                 <th>Name</th>
-                                <th>price</th>
-                                <th>QTY</th>
+                                <th>Unit</th>
+                                <th>Price</th>
                             </tr>
                         </thead>
+  
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr> 
+                            {addToCart.map(
+                                item =>(
+                                <tr key={item._id}>
+                                    <td>{item.name}</td>
+                                    <td>{item.unit}</td>
+                                    <td>{item.price}</td>
+                                </tr> 
+                                )
+                            )}
+                                <tr>
+                                    <td ><strong>TOTAL</strong></td>
+                                    <td >{totalUnit}</td>
+                                    <td >{totalPrice}</td>
+                                </tr> 
                         </tbody>
+                            
                     </Table>    
                 </ModalBody>
                 <ModalFooter>

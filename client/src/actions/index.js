@@ -49,7 +49,15 @@ export const cartSwitch = () => {
 //Add item to shopping cart
 export const addToCart = (item) => {
     return{
-        type: "ADD_TO_CART",
+        type : "ADD_TO_CART",
+        payload : item
+    }
+}
+
+//Add item already existing in the cart
+export const addSameItemToCart = (item) => {
+    return{
+        type : "ADD_SAME_ITEM_TO_CART",
         payload : item
     }
 }
