@@ -7,6 +7,7 @@ import Fashion from './components/body/Fashion';
 import Homekitchen from './components/body/HomeKitchen';
 import AddNewItem from './components/body/AddNewItem'
 import ShoppingCart from './components/body/ShoppingCart'
+import LikeItem from './components/body/LikeItem'
 import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
@@ -17,6 +18,7 @@ function App() {
         <Header />
         <LeftMenu />
         <ShoppingCart />
+        <LikeItem />
         <Switch>
             <Route exact path='/' component={Homepage} />
             <Route exact path='/3c' component={Ccc} />

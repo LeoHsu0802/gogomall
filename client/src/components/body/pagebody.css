@@ -11,10 +11,27 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 
-.additem-box{
+
+.additem-box {
     margin: 3em 20em;
 }
 
-.item{
+.item {
     margin-top: 20px;
+}
+
+.like-btn{
+    margin: 10px;
+    padding-bottom:2px;
+    position: absolute;
+    border: none;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    color: #6c757d;
+}
+.like-btn:hover{
+    background-color: rgb(230, 229, 229);
+}
+.like-btn:focus{
+    outline: none;
 }

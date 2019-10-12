@@ -10,8 +10,7 @@ function ShoppingCart() {
     const addToCart = useSelector(state => state.addToCart);
     const totalUnit = addToCart.reduce((acc, cur) => acc + cur.unit, 0);
     const totalPrice = addToCart.reduce((acc, cur) => acc + cur.price, 0);
-    console.log(addToCart)
-
+ 
     return (
         <div>
             <Modal isOpen={cartSwitchIsOpen} toggle={() => dispatch(cartSwitch())} > 
@@ -36,11 +35,14 @@ function ShoppingCart() {
                                 </tr> 
                                 )
                             )}
+                            {addToCart.length === 0?
+                                <h3>Your Cart Is Empty</h3> :
                                 <tr>
                                     <td ><strong>TOTAL</strong></td>
-                                    <td >{totalUnit}</td>
-                                    <td >{totalPrice}</td>
+                                    <td ><strong>{totalUnit}</strong></td>
+                                    <td ><strong>{totalPrice}</strong></td>
                                 </tr> 
+                            }
                         </tbody>
                             
                     </Table>    

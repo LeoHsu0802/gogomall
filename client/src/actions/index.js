@@ -46,6 +46,21 @@ export const cartSwitch = () => {
     }
 }
 
+//Like item modal switch OPEN/CLOSE
+export const likeItemSwitch = () => {
+    return{
+        type : "LIKE_ITEM_SWITCH"
+    }
+}
+
+//Add item to Like List
+export const addToLike = (item) => {
+    return{
+        type : "ADD_TO_LIKE",
+        payload : item
+    }
+}
+
 //Add item to shopping cart
 export const addToCart = (item) => {
     return{
