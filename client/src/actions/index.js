@@ -61,6 +61,14 @@ export const addToLike = (item) => {
     }
 }
 
+//Delete item from like list
+export const deleteLike = (item) => {
+    return{
+        type : "DELETE_LIKE",
+        payload : item
+    }
+}
+
 //Add item to shopping cart
 export const addToCart = (item) => {
     return{
@@ -76,3 +84,12 @@ export const addSameItemToCart = (item) => {
         payload : item
     }
 }
+
+//Delete item from cart
+export const deleteCart = (item) => {
+    return{
+        type : "DELETE_CART",
+        payload : item
+    }
+}
+

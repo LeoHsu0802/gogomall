@@ -1,3 +1,5 @@
+import { createWriteStream } from "fs";
+
 const initState = [];
 
 const addTocartReducer = (state = initState, action) => {
@@ -15,7 +17,9 @@ const addTocartReducer = (state = initState, action) => {
                 price : existingItem[0].price +action.payload.price
                 }
                 return [...withoutExistingItem,updateExistingItem]
-                
+        case 'DELETE_CART':
+            const CartAfterDelete = state.filter(x => x._id !== action.payload._id)
+            return [...CartAfterDelete]
         default:
                 return state;
     } 

@@ -35,3 +35,7 @@ input::-webkit-inner-spin-button {
 .like-btn:focus{
     outline: none;
 }
+
+.modal-item-img{
+    width: 3em;
+}
