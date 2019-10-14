@@ -50,8 +50,7 @@ function Header() {
             onClick = {() => dispatch(likeItemSwitch())}
             >       
             {/*Once add item to cart then show the quantity in red circle else show nothing*/}
-            {addToLike.length !== 0 && 
-            <sup className="Icon-sub">
+            {addToLike.length !== 0 && <sup className="Icon-sub">
                 <span>
                     {addToLike.length}
                 </span>
