@@ -1,9 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getItem, addToCart, addSameItemToCart, addToLike, deleteLike } from '../../actions/index';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './pagebody.css';
-import { Icon, Intent } from "@blueprintjs/core";
+import { Icon} from "@blueprintjs/core";
 import {
         Card, CardText, CardBody,CardTitle, 
         CardSubtitle, Button, Container, Row, Col
@@ -17,7 +17,7 @@ function Ccc() {
     const cartExistingItems = useSelector(state => state.addToCart);
     const likeExistingItems = useSelector(state => state.addToLike);
     //Set like button state (let heart turn red)
-    const redLikeBtn = likeExistingItems.map(x => x.redLikeBtn)
+    // const redLikeBtn = likeExistingItems.map(x => x.redLikeBtn)
     //Filter by department
     const departmentDatas = itemDatas.item.filter(x => x.department === '3C')
     //Search Function
@@ -29,8 +29,9 @@ function Ccc() {
         dispatch(getItem())
     },[]);
 
+    //handle the item already existing in the cart, if item already in cart when user clicking 
+    //AddToCart item unit will plus 1,else add item to cart
     const handelAddItemToCart = (item) => {
-        //handle the item already existing in the cart
         const cartExistingItem = cartExistingItems.filter(x => x._id === item._id)
         if(cartExistingItem.length > 0){
             dispatch(addSameItemToCart(item, item.unit = 1))
@@ -39,19 +40,26 @@ function Ccc() {
         }
     };
 
+    //handle the item already existing in the like list, if item already in like list while click again, 
+    //remove the item from list, else add item to like list
     const handleAddItemToLike = (item) => {
-        console.log(redLikeBtn)
-        //handle the item already existing in the like list
         const likeExistingItem = likeExistingItems.filter(x => x._id === item._id)
         if(likeExistingItem.length > 0){
-            //if item already in like list while click again, remove the item 
-            //and change heart button color
             dispatch(deleteLike(item))
         }else{
             dispatch(addToLike(item, item.redLikeBtn = true))
         }
     };
-
+    
+    // if item in like list, the heart btu will turn red (by change className)
+    const heartTurnRed = (item) => {
+        const IdInLikeList = likeExistingItems.map(x => x._id)
+        if (IdInLikeList.indexOf(item._id) > -1){
+            return "red-heart-icon"
+        }else{
+            return "normal-heart-icon"
+        }
+    };
 
     return (
         <Container>
@@ -61,15 +69,10 @@ function Ccc() {
                 <Col lg={4} md={6} key={item._id} className="item-box">
                     <Card  className="item">
                         <div className="item-img">
-
-                            {/* Like item btn */}
-                            <button 
-                            className="like-btn"
-                            onClick={()=>handleAddItemToLike(item)}
-                            >
-                                <Icon icon="heart" intent={ redLikeBtn[0] ? Intent.DANGER : Intent.NONE} />
+                            {/* Like item btn with heart icon*/}
+                            <button className="like-btn" onClick={()=>handleAddItemToLike(item)}>
+                                <Icon icon="heart" className={heartTurnRed(item)} />
                             </button>
-
                             {/* item Img */}
                             <img   src={item.img} alt={item.name} />
                         </div>
@@ -77,8 +80,9 @@ function Ccc() {
                                 <CardTitle>{item.name}</CardTitle>
                                 <CardSubtitle>${item.price}</CardSubtitle>
                                 <CardText />
-                                <Button onClick={()=>handelAddItemToCart(item)}
-                                >Add to cart</Button>
+                                <Button onClick={()=>handelAddItemToCart(item)}>
+                                    Add to cart
+                                </Button>
                             </CardBody>
                     </Card>
                 </Col> 
