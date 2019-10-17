@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-// Item Modal
-const Item = require('../../models/item');
+// Item Model
+const Item = require('../../models/user');
 
 //Get api/items
 router.get('/', (req, res) =>{
