@@ -2,11 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux';
 import { logInSwitch } from '../../actions'
 import { Menu, MenuDivider, MenuItem, Popover, Position } from "@blueprintjs/core";
-
 import './Header.css'
-
-
-
 
 function UserMenu() {
     const dispatch = useDispatch();
