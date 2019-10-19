@@ -45,7 +45,6 @@ function LikeItem() {
                     </Table>    
                 </ModalBody>
                 <ModalFooter>
-                    <Button color="primary">Check Out</Button>
                     <Button color="secondary"  onClick={() => dispatch(likeItemSwitch())}>Back To Store</Button>
                 </ModalFooter>
             </Modal>

@@ -80,7 +80,7 @@ function Ccc() {
             <Row>
             {searchItemDatas.map(
                 item =>(
-                <Col lg={4} md={6} key={item._id} className="item-box">
+                <Col lg={3} md={6} key={item._id} className="item-box">
                     <Card  className="item">
                         <div className="item-img">
                             {/* Like item btn with heart icon*/}

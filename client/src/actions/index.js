@@ -53,6 +53,12 @@ export const likeItemSwitch = () => {
     }
 }
 
+// Login modala switch OPEN/CLOSE
+export const logInSwitch = () => {
+    return{
+        type : "LOG_IN_SWITCH"
+    }
+}
 //Add item to Like List
 export const addToLike = (item) => {
     return{

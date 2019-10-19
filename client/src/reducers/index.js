@@ -2,10 +2,13 @@ import { combineReducers } from 'redux';
 import addItemReducer from './addItemReducer';
 import getItemReducer from './getItemReducer';
 import searchItemReducer from './searchItemReducer';
-import cartSwitchReducer from './cartSwitchReducer';
 import addTocartReducer from './addToCartReducer';
-import addToLikeReducer from './addToLikeReducer'
-import likeItemSwitchReducer from './likeItemSwitchReducer'
+import addToLikeReducer from './addToLikeReducer';
+import cartSwitchReducer from './cartSwitchReducer';
+import likeItemSwitchReducer from './likeItemSwitchReducer';
+import logInSwitchReducer from './logInSwitchReducer';
+import authReducer from './authReducer';
+import errorReducer from './errorReducer';
 
 const allReducers = combineReducers({
     addItem : addItemReducer,
@@ -14,7 +17,10 @@ const allReducers = combineReducers({
     cartSwitch : cartSwitchReducer,
     addToCart : addTocartReducer,
     addToLike : addToLikeReducer,
-    likeItemSwitch : likeItemSwitchReducer
+    likeItemSwitch : likeItemSwitchReducer,
+    logInSwitch : logInSwitchReducer,
+    auth : authReducer,
+    error : errorReducer
 })
 
 export default allReducers;

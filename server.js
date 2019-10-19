@@ -22,6 +22,7 @@ mongoose
     // Use Routes
     app.use('/api/item', require('./routes/api/item'));
     app.use('/api/user', require('./routes/api/user'));
+    app.use('/api/auth', require('./routes/api/auth'));
 
     const port = process.env.PORT || 5000
     app.listen(port, () => console.log(`Server started on port ${port}`));

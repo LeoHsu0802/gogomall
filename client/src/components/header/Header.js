@@ -3,6 +3,7 @@ import './Header.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { searchItem, cartSwitch, likeItemSwitch } from '../../actions'
 import { NavLink } from 'react-router-dom';
+import UserMenu from  './UserMenu'
 
 function Header() {
     const dispatch = useDispatch();
@@ -60,10 +61,10 @@ function Header() {
 
             {/* Upload New Items*/}
             <NavLink to='./add-new-item' style={{ textDecoration: 'none'}}>
-                <button className="bp3-button bp3-minimal bp3-icon-upload">Add New</button>
+                <button className="bp3-button bp3-minimal bp3-icon-add">Add New</button>
             </NavLink>
             <span className="bp3-navbar-divider"></span>
-            <button className="mr-10 bp3-button bp3-minimal bp3-icon-user"></button>
+            <UserMenu />
         </div>
     </nav>
     )
