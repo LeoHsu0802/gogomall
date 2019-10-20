@@ -10,6 +10,7 @@ import ShoppingCart from './components/body/ShoppingCart'
 import LikeItem from './components/body/LikeItem'
 import LoginModal from './components/auth/LoginModal'
 import Register from './components/auth/Register'
+import Footer from './components/footer/Footer'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import { Provider } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -39,6 +40,7 @@ function App() {
               <Route exact path='/add-new-item' component={AddNewItem} />
               <Route exact path='/user-register' component={Register} />
           </Switch>
+          <Footer />
         </div>
       </Router>
     </Provider>
