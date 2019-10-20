@@ -202,7 +202,19 @@ export const loadUser = () => (dispatch, getState) => {
   // Logout User
   export const logout = () => {
     return {
-      type:"LOGOUT_SUCCESS"
+      type:"LOGOUT_SUCCESS",
+    };
+  };
+  // Logout User Cart
+  export const logoutCart = () => {
+    return {
+      type:"LOG_OUT_CART",
+    };
+  };
+  // Logout User Like
+  export const logoutLike = () => {
+    return {
+      type:"LOG_OUT_LIKE",
     };
   };
   

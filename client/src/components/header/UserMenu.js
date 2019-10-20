@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { logInSwitch, logout } from '../../actions'
+import { logInSwitch, logout, logoutCart, logoutLike } from '../../actions'
 import { NavLink } from 'react-router-dom'
 import { Menu, MenuDivider, MenuItem, Popover, Position } from "@blueprintjs/core";
 import './Header.css'

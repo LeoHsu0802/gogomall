@@ -7,6 +7,8 @@ const addToLikeReducer = (state = initState, action) => {
         case 'DELETE_LIKE':
             const LikeListAfterDelete = state.filter(x => x._id !== action.payload._id)
             return [...LikeListAfterDelete]
+        case 'LOG_OUT_LIKE':
+            return []
         default:
             return state;
     } 

@@ -18,6 +18,8 @@ const addTocartReducer = (state = initState, action) => {
         case 'DELETE_CART':
             const CartAfterDelete = state.filter(x => x._id !== action.payload._id)
             return [...CartAfterDelete]
+        case 'LOG_OUT_CART':
+            return []
         default:
                 return state;
     } 

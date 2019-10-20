@@ -6,7 +6,7 @@ import { addItem, logInSwitch } from '../../actions/index';
 
 function AddNewItem() {
     const dispatch = useDispatch();
-    const auth = useSelector(state => state.auth)
+    const auth = useSelector(state => state.auth);
     const [itemName, setItemName] = useState("");
     const [itemPrice, setItemPrice] = useState("");
     const [itemImg, setItemImg] = useState("");
