@@ -9,6 +9,7 @@ function Header() {
     const dispatch = useDispatch();
     const addToCart = useSelector(state => state.addToCart);
     const addToLike = useSelector(state => state.addToLike);
+    const auth = useSelector(state => state.auth);
 
     return (
     <nav className="bp3-navbar .modifier">
@@ -65,6 +66,10 @@ function Header() {
             </NavLink>
             <span className="bp3-navbar-divider"></span>
             <UserMenu />
+            {auth.isAuthenticated? 
+                <span className="ml-2" >Hi,<span className="text-info"> {auth.user.name} </span></span> :
+                null
+            }
         </div>
     </nav>
     )

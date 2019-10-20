@@ -9,13 +9,13 @@ import AddNewItem from './components/body/AddNewItem'
 import ShoppingCart from './components/body/ShoppingCart'
 import LikeItem from './components/body/LikeItem'
 import LoginModal from './components/auth/LoginModal'
+import Register from './components/auth/Register'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import { Provider } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import store from './store'
 import { loadUser } from './actions'
-
 
 function App() {
   useEffect(() => {
@@ -37,6 +37,7 @@ function App() {
               <Route exact path='/fashion' component={Fashion} />
               <Route exact path='/home-kitchen' component={Homekitchen} />
               <Route exact path='/add-new-item' component={AddNewItem} />
+              <Route exact path='/user-register' component={Register} />
           </Switch>
         </div>
       </Router>

@@ -1,19 +1,21 @@
 import React,{ useState } from 'react';
 import './pagebody.css';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import { useDispatch } from 'react-redux';
-import { addItem } from '../../actions/index';
+import { Button, Form, FormGroup, Label, Input, Alert } from 'reactstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { addItem, logInSwitch } from '../../actions/index';
 
 function AddNewItem() {
     const dispatch = useDispatch();
+    const auth = useSelector(state => state.auth)
     const [itemName, setItemName] = useState("");
     const [itemPrice, setItemPrice] = useState("");
     const [itemImg, setItemImg] = useState("");
     const [itemDepartment, setItemDepartment] = useState("");
+    const [itemAddSuccessMsg, setItemAddSuccessMsg] = useState(false);
 
     const handelSubmit = (e) => {
         e.preventDefault()
-        if(itemName && itemPrice && itemImg && itemDepartment !== "" ){
+        if(itemName && itemPrice && itemImg && itemDepartment !== "" && auth.isAuthenticated){
             dispatch(addItem({
                 name: itemName,
                 price: itemPrice,
@@ -21,14 +23,19 @@ function AddNewItem() {
                 department: itemDepartment
                 })
             );
-            alert("Submit successfully")
+            setItemAddSuccessMsg(true)
+            window.setTimeout(()=>{
+                setItemAddSuccessMsg(false)
+            },3000)
         }else
-            console.log("請勿空白")
+            dispatch(logInSwitch())
+            
     }
 
     return (
         <Form className="additem-box" onSubmit={handelSubmit}>
             <FormGroup>
+            <Alert color="success" isOpen={itemAddSuccessMsg} >Add Item Success!</Alert>
             <Label >Item Name</Label>
                 <Input 
                     name="itemName" 

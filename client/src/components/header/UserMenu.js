@@ -1,16 +1,28 @@
 import React from 'react'
-import { useDispatch } from 'react-redux';
-import { logInSwitch } from '../../actions'
+import { useDispatch, useSelector } from 'react-redux';
+import { logInSwitch, logout } from '../../actions'
+import { NavLink } from 'react-router-dom'
 import { Menu, MenuDivider, MenuItem, Popover, Position } from "@blueprintjs/core";
 import './Header.css'
 
 function UserMenu() {
     const dispatch = useDispatch();
+    const auth = useSelector(state => state.auth)
     const usermenu = (
         <Menu>
-            <MenuItem text="Sign in" onClick = {() => dispatch(logInSwitch())}/>
-            <MenuDivider />
-            <MenuItem text="Sign out" />
+            {auth.isAuthenticated ?
+            <MenuItem text="Sign out" onClick = {() => dispatch(logout())} /> :
+            
+            <div>
+                <NavLink to='./user-register' style={{ textDecoration: 'none', outline: 'none'}}>
+                    <MenuItem text="Register" className="text-warning" />
+                </NavLink>
+                <MenuDivider />
+                <MenuItem text="Sign in" onClick = {() => dispatch(logInSwitch())}/>
+                <MenuDivider /> 
+            </div>
+            }
+            
         </Menu>
     );
     return (

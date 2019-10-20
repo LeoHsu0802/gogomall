@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 //POST Item
-export const addItem = (item) => dispatch => {
+export const addItem = (item) => (dispatch, getState) => {
     axios
-        .post('/api/item', item)
+        .post('/api/item', item, tokenConfig(getState))
         .then(res =>
             dispatch({
                 type : "ADD_ITEM",
@@ -15,7 +15,9 @@ export const addItem = (item) => dispatch => {
                     }
                 })
         )
-        .catch(err => console.log(err))
+        .catch(err => 
+          dispatch(returnErrors(err.response.data, err.response.status))
+        );
 };
 
 //GET Item
@@ -28,7 +30,9 @@ export const getItem = () => dispatch => {
                 payload : res.data
                 })
             )
-        .catch(err => console.log(err))
+            .catch(err => 
+              dispatch(returnErrors(err.response.data, err.response.status))
+            );
 };
 
 //Search Item
@@ -106,14 +110,14 @@ export const returnErrors = (msg, status, id = null) => {
       payload: { msg, status, id }
     };
   };
-  
-  // CLEAR ERRORS
-  export const clearErrors = () => {
-    return {
-      type: "CLEAR_ERRORS"
-    };
+
+// CLEAR ERRORS
+export const clearErrors = () => {
+  return {
+    type: "CLEAR_ERRORS"
   };
-  
+};
+
 // Check token & load user
 export const loadUser = () => (dispatch, getState) => {
     // User loading

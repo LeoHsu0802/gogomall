@@ -7,13 +7,13 @@ function LeftMenu() {
     return (
         <Menu>
             <NavLink to='./3c' style={{ textDecoration: 'none', outline: 'none'}}>
-                <p id="home" className="menu-item" href="/">3C</p>
+                <p id="home" className="menu-item">3C</p>
             </NavLink>
             <NavLink to='./fashion' style={{ textDecoration: 'none', outline: 'none'}}>
-                <p id="about" className="menu-item" href="/about">Fashion</p>
+                <p id="about" className="menu-item">Fashion</p>
             </NavLink>
             <NavLink to='./home-kitchen' style={{ textDecoration: 'none', outline: 'none'}}>
-                <p id="contact" className="menu-item" href="/contact">Home & Kitchen</p>
+                <p id="contact" className="menu-item">Home & Kitchen</p>
             </NavLink>
         </Menu>
     )

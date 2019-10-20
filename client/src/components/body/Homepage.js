@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getItem, addToCart, addSameItemToCart, addToLike, deleteLike } from '../../actions/index';
+import { logInSwitch } from '../../actions/index';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './pagebody.css';
 import { Icon } from "@blueprintjs/core";
@@ -12,6 +13,7 @@ import {UncontrolledCarousel,
 
 function Ccc() {
     const dispatch = useDispatch();
+    const auth = useSelector(state => state.auth);
     const searchItem = useSelector(state => state.searchItem);
     const itemDatas = useSelector(state => state.getItem);
     const cartExistingItems = useSelector(state => state.addToCart);
@@ -30,10 +32,12 @@ function Ccc() {
     //AddToCart item unit will plus 1,else add item to cart
     const handelAddItemToCart = (item) => {
         const cartExistingItem = cartExistingItems.filter(x => x._id === item._id)
-        if(cartExistingItem.length > 0){
+        if(cartExistingItem.length > 0 && auth.isAuthenticated){
             dispatch(addSameItemToCart(item, item.unit = 1))
-        }else{
+        }else if(auth.isAuthenticated){
             dispatch(addToCart(item, item.unit = 1))
+        }else{
+            dispatch(logInSwitch())
         }
     };
 
@@ -41,10 +45,12 @@ function Ccc() {
     //remove the item from list, else add item to like list
     const handleAddItemToLike = (item) => {
         const likeExistingItem = likeExistingItems.filter(x => x._id === item._id)
-        if(likeExistingItem.length > 0){
+        if(likeExistingItem.length > 0 && auth.isAuthenticated){
             dispatch(deleteLike(item))
-        }else{
+        }else if(auth.isAuthenticated){
             dispatch(addToLike(item, item.redLikeBtn = true))
+        }else{
+            dispatch(logInSwitch())
         }
     };
     
