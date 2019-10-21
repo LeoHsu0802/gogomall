@@ -11,9 +11,9 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 
-
 .additem-box {
-    margin: 3em 20em;
+    margin: 5rem 3em;
+    margin-bottom: auto;
 }
 
 .item {

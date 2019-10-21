@@ -8,21 +8,28 @@ function LoginModal() {
     const dispatch = useDispatch();
     const logInIsOpen = useSelector(state => state.logInSwitch); 
     const Error = useSelector(state => state.error);
-    const [signInEmail, SetSingInEmail] = useState("");
-    const [signInPassword, SetSingInPassword] = useState("");
-    const [SignInErrorMsg, SetSignInErrorMsg] = useState("");
-    const [SignInErrorMsgOpen, SetSignInErrorMsgOpen] = useState(false)
+    const auth = useSelector(state => state.auth);
+    const [signInEmail, setSingInEmail] = useState("");
+    const [signInPassword, setSingInPassword] = useState("");
+    const [SignInErrorMsg, setSignInErrorMsg] = useState("");
+    const [SignInErrorMsgOpen, setSignInErrorMsgOpen] = useState(false)
 
+    //*same as componentdidmount* if error throw error message, if login success then colse modal 
     useEffect(() => {
         if(Error.id === 'LOGIN_FAIL') {
-            SetSignInErrorMsgOpen(true)
-            SetSignInErrorMsg(Error.msg.msg)
+            setSignInErrorMsgOpen(true)
+            setSignInErrorMsg(Error.msg.msg)
             window.setTimeout(()=>{
-                SetSignInErrorMsgOpen(false)
+                setSignInErrorMsgOpen(false)
             },3000)
             dispatch(clearErrors())
-        }
-    })
+        };
+        if(logInIsOpen){
+            if(auth.isAuthenticated){
+                dispatch(logInSwitch())
+            }
+        };
+    },[setSignInErrorMsgOpen, Error.id, Error.msg.msg, auth.isAuthenticated, logInIsOpen, dispatch])
         
     const handelLoginSubmit = (e) => {
         e.preventDefault()
@@ -31,7 +38,6 @@ function LoginModal() {
             password : signInPassword
         };
         dispatch(login(newUser))
-        dispatch(logInSwitch())
     }
 
     return (
@@ -48,7 +54,7 @@ function LoginModal() {
                         name="email"
                         id="email" 
                         placeholder="Please enter your email..." 
-                        onChange={(e) => SetSingInEmail(e.target.value)}
+                        onChange={(e) => setSingInEmail(e.target.value)}
                         />
                     </FormGroup>
                     <FormGroup className="mb-2 mr-sm-2">
@@ -58,7 +64,7 @@ function LoginModal() {
                         name="password" 
                         id="password" 
                         placeholder="Please enter your password..." 
-                        onChange={(e) => SetSingInPassword(e.target.value)}
+                        onChange={(e) => setSingInPassword(e.target.value)}
                         />
                     </FormGroup>
                     <Button className="mt-3">Sign in</Button>

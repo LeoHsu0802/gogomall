@@ -26,7 +26,7 @@ function Ccc() {
     //UseEffect instead of componentdidmount
     useEffect(()=>{
         dispatch(getItem())
-    },[]);
+    },[dispatch]);
 
     //handle the item already existing in the cart, if item already in cart when user clicking 
     //AddToCart item unit will plus 1,else add item to cart
